@@ -10,51 +10,43 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171008160428) do
+ActiveRecord::Schema.define(version: 20171025151614) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
-  create_table "albums", force: :cascade do |t|
-    t.bigint "user_id"
-    t.string "url"
-    t.integer "view"
+  create_table "friends", force: :cascade do |t|
+    t.integer "user1"
+    t.integer "user2"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["user_id"], name: "index_albums_on_user_id"
   end
 
-  create_table "articles", force: :cascade do |t|
-    t.string "title"
+  create_table "messages", force: :cascade do |t|
+    t.string "subject"
     t.string "content"
-    t.string "avatar"
-    t.integer "view"
-    t.bigint "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["user_id"], name: "index_articles_on_user_id"
   end
 
-  create_table "images", force: :cascade do |t|
-    t.bigint "user_id"
-    t.bigint "album_id"
-    t.string "url"
-    t.integer "view"
+  create_table "usermessages", force: :cascade do |t|
+    t.integer "from"
+    t.integer "to"
+    t.bigint "message_id"
+    t.string "status"
+    t.datetime "read_at"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["album_id"], name: "index_images_on_album_id"
-    t.index ["user_id"], name: "index_images_on_user_id"
+    t.index ["message_id"], name: "index_usermessages_on_message_id"
   end
 
   create_table "users", force: :cascade do |t|
     t.string "name"
+    t.string "email"
     t.string "password_digest"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
-  add_foreign_key "albums", "users"
-  add_foreign_key "articles", "users"
-  add_foreign_key "images", "albums"
-  add_foreign_key "images", "users"
+  add_foreign_key "usermessages", "messages"
 end

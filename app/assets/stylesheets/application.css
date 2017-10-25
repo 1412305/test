@@ -2,8 +2,8 @@
  * This is a manifest file that'll be compiled into application.css, which will include all the files
  * listed below.
  *
- * Any CSS and SCSS file within this directory, lib/assets/stylesheets, vendor/assets/stylesheets,
- * or any plugin's vendor/assets/stylesheets directory can be referenced here using a relative path.
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, or any plugin's
+ * vendor/assets/stylesheets directory can be referenced here using a relative path.
  *
  * You're free to add application-wide styles to this file and they'll appear at the bottom of the
  * compiled file so the styles you add here take precedence over styles defined in any other CSS/SCSS
@@ -12,37 +12,21 @@
  *
  *= require_tree .
  *= require_self
+ *= require chosen-compass
  */
- body { 
-    padding: 60px 0px;
+ body{
+     padding: 58px 0px;
  }
-
-.form{
-    width: 330px;
-    padding: 15px 15px 50px;
-    margin-top:50px;
-    border: 1px solid;
+.form {
+    width: 380px;
+    padding: 30px;
 }
 
-.left-menu{
-    height: calc(100vh - 115px);
+.table-emails{
+    cursor: pointer;
 }
 
-.jumpbotron .img{
-    background: #000 url(https://static1.squarespace.com/static/555fb1afe4b004a8dfc0ce79/t/5783160546c3c42c527a42f1/1468208649581/eppig-blog-banner.jpg?format=2500w) center center;
-    margin-bottom: 0px;
-    opacity: 0.2;
-    position: absolute;
-    background-size: cover;
-    width: 100%;
-    height: 100%;
-    overflow: hidden;
-    padding: 50px;
-    color: #fff
+td#from{
+  overflow: hidden;
+  max-width: 300px;
 }
-
-#map {
-    height: 400px;
-    width: 100%;
-   }
-
